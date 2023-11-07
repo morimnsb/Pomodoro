@@ -1,0 +1,136 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  /* position: relative; */
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
+  height: 100%;
+  width:100% ;
+}
+
+@font-face {
+  font-family: "digital-7";
+  src: url("./Fonts/digital-7.ttf") format("truetype");
+}
+
+.container{
+  display: flex;
+  
+  overflow: hidden;
+  width: 350px;
+  height: 350px;
+  background-color: rgb(2, 114, 36);
+  flex-direction: column;
+  
+  font-size: 25px;
+  /* justify-content: center; */
+  align-items: center;
+  border-radius: 50%;
+  border: 10px solid #bbbebb;
+  /* animation: openContainer 10s  ; */
+  
+}
+
+.containerON{
+  display: flex;
+  background-color: rgb(2, 114, 21);
+  
+}
+.powerBtn{
+  width: 100px;
+}
+
+.screen{
+  display: flex;
+  font-family: Digital-7;
+  height: 110px;
+  width: 200px;
+  background-color: #e6e4f0;
+  font-size: 20px;
+  border: 3px solid gray;
+  border-radius: 5px;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.text{
+  display: flex;
+  width:  280px;
+  height: 30px;
+  justify-content: space-around;
+  
+}
+
+input{
+  width: 50px;
+  height: 50px;
+  background-color: rgb(21, 255, 0);
+}
+
+
+
+
+
+.volume {
+  display:flex;
+  width: 44vh;
+  height: 100px;
+  margin: 5px;
+  
+}
+
+
+.work-volume , .break-volume{
+  display: flex;
+  flex-direction: column;
+  width: 24vh ;
+}
+
+#min-w , #min-b{
+  border-radius: 0% 0% 50% 50%;
+  
+}
+#plus-w , #plus-b{
+  border-radius: 50% 50% 0% 0% ;
+}
+
+.resetBtn{
+  display: none;
+  top: 34vh;
+  text-align: center;
+  justify-content: center;
+  width: 44vh;
+  height: 50px;
+  
+}
+.startBtn{
+  top: 34vh;
+  text-align: center;
+  justify-content: center;
+  width: 44vh;
+  height: 50px;
+  
+}
+
+.changeColor {
+  
+  background: linear-gradient(to top,green 0%,green 50%, blue 50% ,blue 100%);
+  background-size: 100% 200%;
+  overflow: hidden;
+  /* position: relative; */
+  animation: changeColor 23s linear ;
+}
+
+@keyframes changeColor {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 100% 200%;
+  }
+}
