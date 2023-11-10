@@ -1,11 +1,11 @@
 //Variables
 var session ={
+  // preferValue
   workTime: 1,
   breakTime: 1,
 };
 
-var workSet = document.querySelector(".workSet");
-var breakSet = document.querySelector(".breakSet");
+
 var container = document.querySelector(".container");
 var Screen = document.querySelector(".screen");
 
@@ -13,28 +13,37 @@ var CycleNum = document.querySelector(".Cycle");
 
 var startBtn = document.querySelector(".startBtn");
 var resetBtn = document.querySelector(".resetBtn");
-var timerElement = document.querySelector('.timer');
 var timer;
 //default values
+let speed =1000;
 var cycleCounter = 0;  
-var step = false;   
-var isToggled = false;  
+var step = true;    
 var counter = 0;
 var run = false;
-Screen.textContent = `work ${session.workTime}min  break  ${session.breakTime}min`;
+Screen.innerText = `
+work ${session.workTime} min
+break  ${session.breakTime} min
+`;
 
 const setSession = session =>{ 
 
-     Screen.textContent =  `Work ${session.workTime} Min Break ${session.breakTime} Min`;
+  Screen.innerText = `
+  work ${session.workTime} min
+  break  ${session.breakTime} min
+  `;
   }
-
+function Speed10X() {
+  speed = 100
+  
+}
 const startTimer= (min) => {
   if (run) {
+
     manageTime(min);
     container.classList.add("changeColor");
     timeLeft = min * 60;
     Screen.style.fontSize =" 70px"
-    Screen.style.animationDuration = `${timeLeft}s`;
+    container.style.animationDuration = `${timeLeft}s`;
     second = timeLeft % 60
    
     Screen.textContent = `${remainedMinutes}: ${remainedSeconds}`;
@@ -48,29 +57,28 @@ const startTimer= (min) => {
           Screen.textContent = `${minute}  : ${second}`;
         } else {
             clearInterval(timer);
-            step = !step
+            // step = !step
             nextStep()
             
             container.classList.remove("changeColor");
         } 
-    }, 1000);
+    },speed);
   }
 }
 
 const nextStep= ()=>{
   counter ++
-  if (step){
-  startTimer(session.breakTime)
-  }else{
-    startTimer(session.workTime)  }
+  if (step !== true){
+    step = true
+    startTimer(session.workTime,step)
   
-  if (counter % 2 == 0){
-    cycleCounter ++
-    CycleNum.innerText = `Cycle ${cycleCounter}`;
-  }
+  }else{
+    step = false
+    startTimer(session.breakTime,step)  }
 }
 const start= ()=>{
   run = true
+  manageTime
   startTimer(session.workTime);
 
   startBtn.style.display = "none"
@@ -99,7 +107,7 @@ const Volume = (click) =>{
   click = click.id
   if( run == false){
     if ((session.workTime > 0 && session.workTime <60) && (session.breakTime > 0 && session.breakTime <60 ) && (run== false)){
-      Screen.style.fontSize = "20px"  
+      Screen.style.fontSize = "30px"  
         if(click == "plus-w"){
           session.workTime++
         }else if(click == "min-w" && session.workTime > 1 ){

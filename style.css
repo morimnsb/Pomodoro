@@ -5,10 +5,9 @@
 }
 body {
   display: flex;
-  /* position: relative; */
+
   flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
+ 
   height: 100%;
   width:100% ;
 }
@@ -24,25 +23,15 @@ body {
   overflow: hidden;
   width: 350px;
   height: 350px;
-  background-color: rgb(2, 114, 36);
+  background-color: #1fc464;
   flex-direction: column;
   
   font-size: 25px;
-  /* justify-content: center; */
+
   align-items: center;
   border-radius: 50%;
-  border: 10px solid #bbbebb;
-  /* animation: openContainer 10s  ; */
-  
-}
+  border: 10px solid rgb(9, 245, 147);
 
-.containerON{
-  display: flex;
-  background-color: rgb(2, 114, 21);
-  
-}
-.powerBtn{
-  width: 100px;
 }
 
 .screen{
@@ -50,12 +39,15 @@ body {
   font-family: Digital-7;
   height: 110px;
   width: 200px;
-  background-color: #e6e4f0;
-  font-size: 20px;
-  border: 3px solid gray;
+  background-color: #1fc464;
+  font-size: 30px;
+
   border-radius: 5px;
-  /* align-items: center; */
+  align-items: center;
   justify-content: center;
+  vertical-align: top;
+  line-height: 30px;
+  font-weight: bold;
 }
 
 .text{
@@ -66,31 +58,18 @@ body {
   
 }
 
-input{
-  width: 50px;
-  height: 50px;
-  background-color: rgb(21, 255, 0);
-}
-
-
-
-
-
 .volume {
   display:flex;
   width: 44vh;
   height: 100px;
   margin: 5px;
-  
+  display: flex;
 }
-
-
 .work-volume , .break-volume{
   display: flex;
   flex-direction: column;
   width: 24vh ;
 }
-
 #min-w , #min-b{
   border-radius: 0% 0% 50% 50%;
   
@@ -116,14 +95,17 @@ input{
   height: 50px;
   
 }
-
+#demoBtn{
+  width: 250px;
+  align-self: center;
+}
 .changeColor {
   
   background: linear-gradient(to top,green 0%,green 50%, blue 50% ,blue 100%);
   background-size: 100% 200%;
   overflow: hidden;
   /* position: relative; */
-  animation: changeColor 23s linear ;
+  animation: changeColor 60s linear infinite;
 }
 
 @keyframes changeColor {
@@ -132,5 +114,14 @@ input{
   }
   100% {
     background-position: 100% 200%;
+  }
+}
+
+@keyframes unset-changeColor {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 100% 100%;
   }
 }
